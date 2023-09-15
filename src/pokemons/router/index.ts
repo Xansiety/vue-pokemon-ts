@@ -11,7 +11,7 @@ export const pokemonRoutes: RouteRecordRaw = {
     {
       path: `/${ROUTE_NAME}/list`,
       name: `${ROUTE_NAME}-list`,
-      props: { title: 'Lista de Pokemons' },
+      props: { title: 'Lista de Pokemons' },      
       component: () => import('@/pokemons/pages/PokemonList.vue')
     },
     {

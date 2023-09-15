@@ -6,14 +6,15 @@ import { pokemonRouterLinks } from '../router';
 <template>
     <NavBar :links="pokemonRouterLinks"
             is-secondary />
-    <Suspense>
-        <RouterView />
+
+    <RouterView /> 
+    <!-- <Suspense>
         <template #fallback>
             <div class='loading'>
                 <h1>Loading...</h1>
             </div>
         </template>
-    </Suspense>
+    </Suspense> -->
 </template> 
 
 <style lang='scss' scoped></style>

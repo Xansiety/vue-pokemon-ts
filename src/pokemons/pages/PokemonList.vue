@@ -1,32 +1,30 @@
 <script setup lang='ts'>
-import { ref } from 'vue';
-import { getPokemons } from '../helpers/get-pokemons';
-import type { Pokemon } from '../interfaces';
+import { usePokemon } from '../composables/usePokemons';
 
-export interface Props {
-    title?: string;
-}
-defineProps<Props>();
-
-const data = await getPokemons();
-const pokemons = ref<Pokemon[]>(data);
-
-// getPokemons().then((response) => {
-//     pokemons.value = { ...response };
-// });
+const { count, isLoading, pokemons } = usePokemon();
 
 </script> 
 
 <template>
-    <h1> Pokemon List</h1>
+    <div class='pokemon-list'>
+        <span v-if="isLoading">
+            <h1>
+                Cargando...
+            </h1>
+        </span>
 
-
-    <ul>
-        <li v-for='pokemon in pokemons'
-            :key='pokemon.name'>
-            {{ pokemon.name }}
-        </li>
-    </ul>
+        <template v-if="!isLoading">
+            <h1>
+                Pokemon List - {{ count }}
+            </h1>
+            <ul v-if="!isLoading">
+                <li v-for='pokemon in pokemons'
+                    :key='pokemon.name'>
+                    {{ pokemon.name }}
+                </li>
+            </ul>
+        </template>
+    </div>
 </template> 
 
 <style lang='scss' scoped></style>

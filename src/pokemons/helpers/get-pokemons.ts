@@ -3,6 +3,10 @@ import type { Pokemon, PokemonListResponse, PokemonResponse } from '../interface
 import axios from 'axios'
 
 export const getPokemons = async (): Promise<Pokemon[]> => {
+
+  // simulate an error
+  // throw new Error('Error on getPokemons')
+
   const { data } = await pokemonApi.get<PokemonListResponse>('/pokemon?limit=45')
 
   const pokemonPromises: Promise<Pokemon>[] = []

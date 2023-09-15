@@ -1,7 +1,20 @@
 <script setup lang='ts'>
 import store from '@/store/pokemon.store';
+import { useQuery } from '@tanstack/vue-query';
 import PokemonCardList from '../components/PokemonCardList.vue';
+import { getPokemons } from '../helpers/get-pokemons';
  
+
+useQuery(
+    ['pokemons'],
+    getPokemons,
+   {
+    select(data) {
+        store.loadedPokemons(data);
+    }
+   } 
+)
+
 </script> 
 
 <template>

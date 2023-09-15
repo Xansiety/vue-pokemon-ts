@@ -18,7 +18,7 @@ defineProps<Props>()
     </div>
 </template> 
 
-<style   scoped>
+<style scoped>
 .card-list {
     display: flex;
     flex-direction: row;

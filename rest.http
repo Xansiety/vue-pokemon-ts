@@ -1,0 +1,9 @@
+
+#GET
+https://pokeapi.co/api/v2/pokemon?limit=45
+
+# GET 
+# Authentication 
+https://pokeapi.co/api/v2/pokemon/1
+
+

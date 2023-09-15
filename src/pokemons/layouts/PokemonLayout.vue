@@ -1,12 +1,19 @@
 <script setup lang='ts'>
-import NavBarVue from '@/shared/component/navbar/NavBar.vue';
+import NavBar from '@/shared/component/navbar/NavBar.vue';
 import { pokemonRouterLinks } from '../router';
 </script> 
 
 <template>
-    <NavBarVue :links="pokemonRouterLinks"
-               is-secondary />
-    <RouterView />
+    <NavBar :links="pokemonRouterLinks"
+            is-secondary />
+    <Suspense>
+        <RouterView />
+        <template #fallback>
+            <div class='loading'>
+                <h1>Loading...</h1>
+            </div>
+        </template>
+    </Suspense>
 </template> 
 
 <style lang='scss' scoped></style>

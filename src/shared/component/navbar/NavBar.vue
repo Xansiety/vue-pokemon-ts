@@ -1,6 +1,7 @@
  
 <script setup lang='ts'>
 import type { RouterLink } from '@/router/list-routes';
+import { toRef, computed } from 'vue';
 
 
 interface Props {
@@ -14,6 +15,9 @@ const props = withDefaults(defineProps<Props>(), {
   isSecondary: false
 });
 
+// const links = toRef(props, 'links'); // not lose reactivity
+const links = computed(() => props.links.filter(link => link.isVisible));
+  
 </script> 
 
 <template>
